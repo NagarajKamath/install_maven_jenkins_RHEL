@@ -60,5 +60,8 @@ sudo yum upgrade  &> /dev/null
 sudo yum install fontconfig java-17-openjdk  &> /dev/null
 sudo yum install jenkins  &> /dev/null
 sudo systemctl daemon-reload  &> /dev/null
+
+sudo systemctl enable jenkins  &> /dev/null
+sudo systemctl start jenkins  &> /dev/null
 # Check Jenkins service status
 systemctl status jenkins
