@@ -42,11 +42,10 @@ source /etc/profile.d/maven.sh
 echo ""
 echo ""
 # Verify Maven installation
-mvn -version
+mvn --version
 echo ""
 echo ""
-echo ""
-echo ""
+
 
 
 
