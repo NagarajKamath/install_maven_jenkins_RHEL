@@ -1,7 +1,7 @@
 #!/bin/bash
 
 original_dir=$(pwd)
-echo "Checking and installing necessary packages. This may take sometimes..."
+echo "Checking and installing necessary packages for Maven and Jenkins. This may take sometimes..."
 # Update and upgrade packages
 sudo yum update  &> /dev/null
 sudo yum install wget &> /dev/null
@@ -47,3 +47,18 @@ echo ""
 echo ""
 echo ""
 echo ""
+
+
+
+
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key  &> /dev/null
+sudo yum upgrade  &> /dev/null
+# Add required dependencies for the jenkins package
+sudo yum install fontconfig java-17-openjdk  &> /dev/null
+sudo yum install jenkins  &> /dev/null
+sudo systemctl daemon-reload  &> /dev/null
+# Check Jenkins service status
+systemctl status jenkins
